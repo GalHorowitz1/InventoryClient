@@ -1,0 +1,56 @@
+<!-- action bar -->
+<div class="row">
+  <div class="col-12 bg-light">
+    <button type="button" class="btn btn-outline-success"
+            routerLink="/">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      Back to inventory
+    </button>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-4">
+    <!-- create \ edit product form -->
+    <form #productForm="ngForm" (ngSubmit)="createNewProduct()">
+      <small>ID: {{product.id}}</small>
+      <!--name-->
+      <div class="form-group">
+        <label for="name">Product Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name"
+               [(ngModel)]="product.name" name="name" #name="ngModel" required>
+      </div>
+      <!--price-->
+      <div class="form-group">
+        <label for="price">Product price</label>
+        <input type="number" class="form-control" id="price" placeholder="Enter price"
+               [(ngModel)]="product.price" name="price" required>
+      </div>
+      <!--description-->
+      <div class="form-group">
+        <label for="description">Product description</label>
+        <textarea class="form-control" id="description" placeholder="Enter description" rows="4"
+                  [(ngModel)]="product.description" name="description"></textarea>
+      </div>
+      <!--image-->
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="text" class="form-control" id="image" placeholder="Image URL" aria-describedby="imageHelp"
+               [(ngModel)]="product.image" name="image">
+        <small id="imageHelp" class="form-text text-muted">Please enter image URL</small>
+      </div>
+      <!--submit-->
+      <button type="submit" class="btn btn-primary"
+              [disabled]="!productForm.form.valid">Submit
+      </button>
+    </form>
+  </div>
+  <div class="col-md-4 col-sm-12">
+    <span>preview</span>
+    <app-product-preview
+      [product]="product"
+      (action)="productAction($event)">
+    </app-product-preview>
+  </div>
+</div>

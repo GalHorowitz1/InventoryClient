@@ -1,0 +1,33 @@
+<!-- action bar -->
+<div class="row">
+  <div class="col-8 col-md-4">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for product" aria-label="Search for..."
+             [(ngModel)]="filter">
+    </div>
+  </div>
+  <div class="col-4 col-md-8 action-bar">
+    <!-- refresh button -->
+    <button type="button" class="btn btn-outline-info"
+            (click)="getProductList()">
+      <i class="fa fa-refresh loader"
+         aria-hidden="true"></i>
+    </button>
+
+    <!-- create button -->
+    <button type="button" class="btn btn-outline-success"
+            routerLink="/create">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<!-- product list -->
+<div class="row">
+  <div class="col-md-4 col-sm-12" *ngFor="let item of products | productName:filter">
+    <app-product-preview
+      [product]="item"
+      (action)="productAction($event)">
+    </app-product-preview>
+  </div>
+</div>
