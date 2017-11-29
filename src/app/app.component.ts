@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {InventoryService} from './shared/services/inventory.service';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

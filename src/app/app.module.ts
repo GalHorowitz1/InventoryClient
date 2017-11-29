@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {InventoryService} from './shared/services/inventory.service';
 import {ProductNamePipe} from './shared/pipes/product-name.pipe';
 import {RoutRoutingModule} from './rout/rout-routing.module';
+import { DataStructuresComponent } from './data-structures/data-structures.component';
 
 
 @NgModule({
@@ -17,10 +18,12 @@ import {RoutRoutingModule} from './rout/rout-routing.module';
     InventoryPanelComponent,
     ProductPreviewComponent,
     ProductCreateComponent,
-    ProductNamePipe
+    ProductNamePipe,
+    DataStructuresComponent
   ],
   imports: [
     BrowserModule,
+    StoreModule.provideStore({ counter: counterReducer })
     HttpClientModule,
     FormsModule,
     RoutRoutingModule

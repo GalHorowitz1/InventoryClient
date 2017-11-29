@@ -1,0 +1,149 @@
+<div>
+  <!-- title -->
+  <div class="row">
+    <div class="col-12">
+      <h2>
+        Data Structures
+      </h2>
+
+    </div>
+  </div>
+  <!-- Stack -->
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        My Stack
+      </h3>
+    </div>
+  </div>
+  <!-- stack actions -->
+  <div class="row structure">
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-info"
+              (click)="stack.pushRandomNumber()">
+        push random number
+      </button>
+      <br>
+      <button type="button" class="btn btn-outline-info"
+              (click)="stack.pop()">
+        pop
+      </button>
+      <br>
+      <button type="button" class="btn btn-outline-info"
+              (click)="stackPeek()">
+        peek
+
+      </button>
+      <br>
+      <h3>
+        peek {{peekValue}}
+      </h3>
+
+    </div>
+
+    <div class="col-9">
+      <div *ngFor="let item of stack.stack let index = index">
+        <span *ngIf="item !== -1"
+              class="cell"
+              [ngClass]="(index === stack.head)? 'head' : ''">
+        {{item}}
+          </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Queu -->
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        My Q
+      </h3>
+    </div>
+  </div>
+  <!-- queue actions -->
+  <div class="row structure">
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-info"
+              (click)="queue.insertRandomNumber()">
+        push random number
+      </button>
+      <br>
+      <button type="button" class="btn btn-outline-info"
+              (click)="queue.remove()">
+        remove
+      </button>
+      <br>
+      <button type="button" class="btn btn-outline-info"
+              (click)="queuePeek()">
+        peek
+      </button>
+      <br>
+      <h3>
+        peek {{peekValue}}
+      </h3>
+
+    </div>
+
+    <div class="col-9">
+      <div *ngFor="let item of queue.queue let index = index"
+      >
+        <span *ngIf="item !== -1"
+              class="cell"
+              [ngClass]="(index === queue.start)? 'head' : ((index === queue.end)? 'tail' : '')">
+        {{item}}
+          </span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- LL -->
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        My LinkedList
+      </h3>
+    </div>
+  </div>
+  <!-- LL actions -->
+  <div class="row structure">
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-info"
+              (click)="LLRandom()">
+        create random
+      </button>
+      <br>
+      <input type="text" class="form-control" [(ngModel)]="linkListInput" placeholder="enter text"/>
+      <button type="button" class="btn btn-outline-info"
+              (click)="LLadd()">
+        add
+      </button>
+      <br>
+      <button type="button" class="btn btn-outline-info"
+              (click)="LLremoveFirst()">
+        remove first
+      </button>
+      <br>
+      <button type="button" class="btn btn-outline-info"
+              (click)="LLsearch()">
+        search
+      </button>
+      <br>
+      <button type="button" class="btn btn-outline-info"
+              (click)="LLremove()">
+        remove
+      </button>
+    </div>
+
+    <div class="col-9">
+      <div *ngFor="let item of listDisplay let index = index">
+        <span class="cell"
+              [ngClass]="(linkListInput === item)? 'head' : '' ">
+        {{item}}
+          </span>
+      </div>
+    </div>
+  </div>
+
+
+</div>

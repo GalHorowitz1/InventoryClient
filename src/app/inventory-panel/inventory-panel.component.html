@@ -19,6 +19,13 @@
             routerLink="/create">
       <i class="fa fa-plus" aria-hidden="true"></i>
     </button>
+
+    <!-- data structure button -->
+    <button type="button" class="btn btn-outline-success"
+            routerLink="/dataStructures">
+      Data Structures
+    </button>
+
   </div>
 </div>
 
@@ -29,5 +36,15 @@
       [product]="item"
       (action)="productAction($event)">
     </app-product-preview>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <button (click)="increment()">Increment</button>
+    <div>Current Count: {{ counter | async }}</div>
+    <button (click)="decrement()">Decrement</button>
+
+    <button (click)="reset()">Reset Counter</button>
   </div>
 </div>

@@ -1,0 +1,19 @@
+.structure {
+  border: 1px solid gray;
+  button {
+    width: 100%;
+  }
+  .cell {
+    border: 1px solid black;
+    float: left;
+  }
+
+  .head {
+    border: 2px solid green;
+  }
+
+  .tail {
+    border: 2px solid red;
+  }
+
+}

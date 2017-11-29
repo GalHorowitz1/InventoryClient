@@ -3,6 +3,13 @@ import {Product, ProductActions} from '../shared/models/product';
 import {InventoryService} from '../shared/services/inventory.service';
 import {Router} from '@angular/router';
 
+interface AppState {
+  counter: number;
+}
+
+
+
+
 @Component({
   selector: 'app-inventory-panel',
   templateUrl: './inventory-panel.component.html',
