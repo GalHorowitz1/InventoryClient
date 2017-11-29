@@ -23,7 +23,6 @@ import { DataStructuresComponent } from './data-structures/data-structures.compo
   ],
   imports: [
     BrowserModule,
-    StoreModule.provideStore({ counter: counterReducer })
     HttpClientModule,
     FormsModule,
     RoutRoutingModule
