@@ -39,4 +39,11 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-12">
+    <button (click)="increment()">Increment</button>
+    <div>Current Count: {{ counter$ | async }}</div>
+    <button> Decrement </button>
 
+  </div>
+</div>

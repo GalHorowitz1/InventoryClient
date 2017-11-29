@@ -9,7 +9,12 @@ import {FormsModule} from '@angular/forms';
 import {InventoryService} from './shared/services/inventory.service';
 import {ProductNamePipe} from './shared/pipes/product-name.pipe';
 import {RoutRoutingModule} from './rout/rout-routing.module';
-import { DataStructuresComponent } from './data-structures/data-structures.component';
+import {DataStructuresComponent} from './data-structures/data-structures.component';
+import {StoreModule} from '@ngrx/store';
+import {AppReducers} from './shared/models/appState';
+import {InventoryAction} from './inventory-panel/inventory-panel.action';
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+
 
 
 @NgModule({
@@ -23,11 +28,18 @@ import { DataStructuresComponent } from './data-structures/data-structures.compo
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot(AppReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
+    }),
     HttpClientModule,
     FormsModule,
     RoutRoutingModule
   ],
-  providers: [InventoryService],
+  providers: [
+    InventoryService,
+    InventoryAction
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

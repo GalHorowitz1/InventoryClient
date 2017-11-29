@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {InventoryService} from './shared/services/inventory.service';
+import {Store} from "@ngrx/store";
+import {AppState} from "./shared/models/appState";
 
 
 
@@ -10,7 +12,9 @@ import {InventoryService} from './shared/services/inventory.service';
 })
 export class AppComponent {
 
-  constructor(private inventoryService: InventoryService) {
+  constructor(
+    private store: Store<AppState>,
+    private inventoryService: InventoryService) {
   }
 
   /**
