@@ -9,7 +9,7 @@
   <div class="col-4 col-md-8 action-bar">
     <!-- refresh button -->
     <button type="button" class="btn btn-outline-info"
-            (click)="getProductList()">
+            (click)="refreshProductList()">
       <i class="fa fa-refresh loader"
          aria-hidden="true"></i>
     </button>
@@ -31,7 +31,7 @@
 
 <!-- product list -->
 <div class="row">
-  <div class="col-md-4 col-sm-12" *ngFor="let item of products | productName:filter">
+  <div class="col-md-4 col-sm-12" *ngFor="let item of (products$ | async) | productName: filter ">
     <app-product-preview
       [product]="item"
       (action)="productAction($event)">
@@ -39,11 +39,3 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-12">
-    <button (click)="increment()">Increment</button>
-    <div>Current Count: {{ counter$ | async }}</div>
-    <button> Decrement </button>
-
-  </div>
-</div>

@@ -16,12 +16,4 @@ export class AppComponent {
     private store: Store<AppState>,
     private inventoryService: InventoryService) {
   }
-
-  /**
-   * create mock data
-   */
-  startDemo() {
-    this.inventoryService.demoData();
-  }
-
 }

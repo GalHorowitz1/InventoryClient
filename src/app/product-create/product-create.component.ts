@@ -45,4 +45,11 @@ export class ProductCreateComponent implements OnInit {
       alert('save faild');
     });
   }
+
+  /**
+   * create mock data
+   */
+  startDemo() {
+    this.inventoryService.demoData();
+  }
 }

@@ -98,5 +98,6 @@ export class InventoryService {
         console.log('temp', res);
       });
     });
+    alert('demo ready');
   }
 }

@@ -12,8 +12,9 @@ import {RoutRoutingModule} from './rout/rout-routing.module';
 import {DataStructuresComponent} from './data-structures/data-structures.component';
 import {StoreModule} from '@ngrx/store';
 import {AppReducers} from './shared/models/appState';
-import {InventoryAction} from './inventory-panel/inventory-panel.action';
-import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {EffectsModule} from '@ngrx/effects';
+import {InventoryEffect} from './inventory-panel/inventory-panel.effect';
 
 
 
@@ -28,6 +29,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
   ],
   imports: [
     BrowserModule,
+    EffectsModule.forRoot([InventoryEffect]),
     StoreModule.forRoot(AppReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25 //  Retains last 25 states
@@ -38,7 +40,6 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
   ],
   providers: [
     InventoryService,
-    InventoryAction
   ],
   bootstrap: [AppComponent]
 })

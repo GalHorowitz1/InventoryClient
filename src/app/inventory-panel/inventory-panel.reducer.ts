@@ -1,7 +1,7 @@
 import {Product} from '../shared/models/product';
-import {InventoryAction} from './inventory-panel.action';
-import {IAction} from "../shared/models/appState";
+import * as InventoryAction from './inventory-panel.action';
 
+export type Action = InventoryAction.All;
 
 export interface InventoryState {
   products: Product[];
@@ -11,14 +11,12 @@ const defaultInventoryState: InventoryState = {
   products: []
 };
 
-export function inventoryReducer(state: InventoryState = defaultInventoryState, action: IAction) {
+export function inventoryReducer(state: InventoryState = defaultInventoryState, action: Action) {
   switch (action.type) {
 
-    case InventoryAction.SOME: {
-      debugger;
-
-      return Object.assign({}, state, {
-        products: action.payload.data
+    case InventoryAction.GET_PRODUCT_LIST_FROM_SERVER_SUCCESS: {
+      return Object.assign({}, {
+        products: action.payload
       });
     }
 
